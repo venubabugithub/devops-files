@@ -1,0 +1,266 @@
+install docker
+check docker status                          (systemctl status docker)                              (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)
+start docker
+check docker images                          (docker images)
+check docker containers and running          (docker ps -a & docker container ls)
+pull ubuntu image                            (docker pull ubuntu)
+run ubuntu image                             (docker run -it --name containername imagename)
+run the container through container id       (docker run -it imageid /bin/bash)
+exit from container                          (exit)
+start the container                          (docker start containername)
+write dockerfile                             (vi Dockerfile)
+execute dockerfile                           (docker build -t imagename .)
+run container
+inspect the image                            (docker image inspect imagename)
+create the image from containe               (docker commit container name image name)
+delete docker image                          (docker rmi image id)
+delete docker container                      (docker rm contaner id)
+create 2 containers
+delete all docker images                     (docker image prune or docker image prune -f imageid)
+delete all stopped containers                (docker container prune)
+docker network prune
+uninstall docker                             (yum remove docker)
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------->\
+vpc
+typpes of ebs
+iops is input output per second 1gb = 3 ips limit 100gb to 3000gb
+attch the instance to volume 
+we should create ebs in region which instance is created
+lsblk to list block(xvdf shows mounted device information)
+first format xvdf mkfs -t xfs /dev/xvdf
+create one directory mkdir /opt/venu
+cd /opt/venu
+mount /dev/xvdf
+mount /dev/xvdf  /opt/venu
+create 30 files
+check df -h  if u got /opt/venu or not
+
+if the instance attached to the volume got deleted then create an other intance and attach it
+now u can drectly mount by mkdir /opt/raja
+                           mount /dev/xvdf  /opt/raja
+check u got 30 files or not
+
+difference btween snapshot and mi
+snapshot is backup for volumes ami is for whole instance
+---------------------------------------------------------(24)
+in s3 data is stored in the form of objects
+types of storages block nd s3 and types
+types of instances
+ondemand, spot, reserved instances
+on demand instance: no long commitment with amazon u can start or stop anytime
+reserved nstance: reserved for 1 to 3 years (ca get 70 percent discount)
+spot instace: enables u to request unused instance can get 90 percent discount
+
+s3 simple storage service
+we can create 100 buckets default and after u have to request aws
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------(1)
+present working directory                                  pwd  
+create file1 to 3                                          touch file{1..3}
+add content in file without openinng                       cat>>file1 enter info
+go inside file2 and write this is 1st line                 vi file2
+modes(command insert execute)
+add this is 2nd line to file2 without vi command           cat>>this is 2nd line
+list the file                                              ls or ls -la or ls -lrt
+in file2 vi copy line 10 times                             yy plus 10p
+go to next line                                            o
+delete 5 lines from that line                              5dd
+undo                                                       u  
+go to first line                                           gg
+go to lst line                                             G
+go to 5th lne                                              5gg
+display top 10 lines                                       head -10 filename 
+bottom 10 lins                                             tail -10 filename
+remove the file2                                           rm filename
+remove remaining files
+create a directory direectory1 and directory2              mkdir1
+go inside directory1 and create a file                     cd directory1
+remove the direectory2                                     rmdir drectoryname
+remve empty directory1                                     rm -rf directory
+permissions                                                file/directory|user|grroup|others   read=4,wrrite=2,execute=1
+default file permission                                    644
+default directory pemission                                755
+create file venu and change permission                     chmod 742 filename
+add user venu                                              useradd venu 
+add group babu                                             groupadd babu
+chnge user permission for venu                             chown gara:123 venu            (users are nothng but how we login to windows as users eg admin venu)
+create direcory ravi and place file1 to 4
+change the inside file permisions along with directory ravi   chown -R gara:123 venu         (R for recursive)
+check user id                                              id siva
+check all users                                            cat /etc/passwd
+check all groups                                           cat /etc/group
+delete user venu                                            userdel venu
+delete group babu                                           userdel group
+login as user venu                                         su - venu
+check u r logged in or not                                 who
+go to home                                                 cd /root
+create a file ravi and move to /home                       mv ravi(file) /home(path) 
+renamefile                                                 mv oldname(src) newname(destination)
+copy the ravi folder with fles inside                      cp src -r destination
+delete user venu                                           userdel venu
+delete group babu                                          groupdel babu
+check logs to clear the space for webservers               cd /var/logs/(httpd)
+check error logs                                           tail -f error_log
+check particular type of filees                            -type f -name httpd.conf
+check date                                                 date
+-------------------
+after enabling http port and installing httpd nd starting at /var/www/index place index.html u will get what u want
+hosting website from github
+install httpd
+start httpd
+git clone url /var/www/html
+run with public ip in chrome 
+check ports running on server       netstat -ntlp(go inside server and check)(n=network address t=tcp ports l=listening port p=processor) 
+-------------------(6)
+http  - 80
+https - 443
+ommand to see available space in server --                free -m
+everything about erver(space memry)                       top
+disc sace detaiils                                        df -h(human readable)
+size of te files and directories in wd                    du -sh *
+ptivate ip                                                ifconfig
+publc ip                                                  ifconfig.me
+process id of required service                             ps -ef| grep httpd
+kill process                                              kill -9 processid
+logs                                                      var/logs
+if we want to serch some word in a f;e                    grep -i word filenameS
+details about os                                          cat /etc/os-release
+check history of commands used                            hisstory
+----------------(7)
+GIT HUB
+ 
+create a 3files in github in main branch
+create a feature branch and add 4th file
+now merge feature branch with master
+             base main branch compare feature branch
+raise a pull request
+merge pull request (shhould be done by manager)
+
+in linux
+install git
+crete a drectory called aws
+go inside aws directory
+clone github project                                         -git clone url
+add file5 in main brnch and write it is written in linux(in linux)
+check the status of commits                                  -git status
+add file5                                                     git add file5
+commit the files                                              git commit -m ""
+check information about logs or about comit info              git show commitid
+configure git                                                 git config user.name "username" simailarly user.mail
+check git configurtions                                       git config --list
+generate tokens                                               settings-->developer settings-->personal access token-->generate(account level settings)
+---------------------------------------------(8)
+connect to github                                             git remote add origin url
+push main branch to github                                    git push -u origin main
+git pull=git fetch+git merge
+check git status                                              git statu 
+create new branch                                             git branch branchname
+switch to feature branch                                      git checkout branchname
+remove remote connection from github
+check connection bw git ng hub is there or not                git remote -v
+-------------------------------------------(9)
+connect again
+delete branch in linux                                       git branch -d branchname(-D when u r deleting future branch whih have more files than master and not merrged)
+git pull
+-------------------------------------------(10)
+create a branch and checkout to that branch                   git checkout -b branchname 
+git files are available in all branches unless u commit to a partcular branch
+create 2 branches and create 2 files iside each branch and merge them
+git merge                                                    git merge src and dest(stay in dest branch)
+when u rebase u can see the history logs of rebased branches also
+create 2 files and add to git stash-->git stash (if not working git add -A then git stash)
+commit files in git statsh   -->git stash apply
+check git stash list            git stash list
+commit files through pop        git stash pop
+difference between git pop and git stash
+both are for same purpose but if u apply git pop stash id is not shown in git stash list
+delete file are ther in git stash   git stash clear
+git reset soft reset hard reset
+tag a git branch                    git tag tagname
+push the tagged brannch             git push origin tagname
+we r tagging so the branch will be created as a zip whenever u want u can download
+if we want to connect through ssh we use pem key
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------
+to know which linux version we are using                 /etc/redhat-release
+web server and application server                        which hosts static pages and dynmic pages 
+how do u make a webserver doesnt pause                   systemctl enable httpd 
