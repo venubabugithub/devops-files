@@ -202,6 +202,7 @@ check connection bw git ng hub is there or not                git remote -v
 connect again
 delete branch in linux                                       git branch -d branchname(-D when u r deleting future branch whih have more files than master and not merrged)
 git pull
+when created a branch in central and want to pull to local   git pull origin <branch> --rebase 
 -------------------------------------------(10)
 create a branch and checkout to that branch                   git checkout -b branchname 
 git files are available in all branches unless u commit to a partcular branch
