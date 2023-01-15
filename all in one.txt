@@ -62,9 +62,10 @@ on demand instance: no long commitment with amazon u can start or stop anytime
 reserved nstance: reserved for 1 to 3 years (ca get 70 percent discount)
 spot instace: enables u to request unused instance can get 90 percent discount
 
+
 s3 simple storage service
 we can create 100 buckets default and after u have to request aws
-this is first line
+
 
 
  
