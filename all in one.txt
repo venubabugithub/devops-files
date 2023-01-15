@@ -169,7 +169,8 @@ details about os                                          cat /etc/os-release
 check history of commands used                            hisstory
 ----------------(7)
 GIT HUB
- 
+
+max file size 100mb
 create a 3files in github in main branch
 create a feature branch and add 4th file
 now merge feature branch with master
