@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    tools {
+        maven 'maven'
+    }
+    stages {
+        stage('build maven') {
+            steps {
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '1cc3a08b-1092-4f36-8c4a-b14f30efe98e', url: 'https://github.com/venubabugithub/jenkins-docker-example.git']])
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+        }
+        stage('build docker image') {
+            steps {
+                script {
+                    sh 'docker build -t venubabudocker/my-app-1.0 .'
+                }
+            }
+        }
+        stage('push docker image') {
+            steps {
+                script {
+                    withCredentials([string(credentialsId: 'venubabudocker', variable: 'docker')]) {
+                    sh 'docker login -u venubabudocker -p ${docker}'
+}
+                
+                    sh 'docker push venubabudocker/my-app-1.0'
+                }
+            }
+        }
+    }
+}
